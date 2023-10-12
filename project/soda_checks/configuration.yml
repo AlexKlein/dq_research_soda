@@ -1,0 +1,8 @@
+data_source my_small_dwh:
+  type: postgres
+  host: my_small_dwh
+  port: "5432"
+  username: postgres
+  password: postgres
+  database: postgres
+  schema: public

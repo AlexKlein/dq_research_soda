@@ -1,0 +1,12 @@
+checks for `just-data-warehouse.nba_partner_analytics_marts.daas_orders`:
+  - row_count > 0
+  - null_percent_in_city < 2:
+      bmw_percent_in_model query: |
+        SELECT SUM(
+                   CASE
+                   WHEN model = 'BMW M3' THEN 0
+                   ELSE 1
+               END) / COUNT(1) * 100 AS number_of_bmw
+        FROM   automotive.cars
+  - models_outside_of_the_list = 0:
+      models_outside_of_the_list sql_file: "cars.sql"
