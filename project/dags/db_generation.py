@@ -12,7 +12,7 @@ MODULE_PATH = '/opt/airflow/db_generator/generator.py'
 MODULE_NAME = 'generator'
 
 DEFAULT_ARGS = {
-    'owner': 'Data-Governance',
+    'owner': 'aleksandr.klein',
     'depends_on_past': False,
     'email_on_failure': False,
     'email_on_retry': False

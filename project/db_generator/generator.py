@@ -45,6 +45,10 @@ def setup_database(cur):
     ''')
 
     cur.execute('''
+        CREATE SCHEMA IF NOT EXISTS data_quality;
+    ''')
+
+    cur.execute('''
         DROP TABLE IF EXISTS automotive.cars;
         CREATE TABLE automotive.cars (
             id SERIAL PRIMARY KEY,

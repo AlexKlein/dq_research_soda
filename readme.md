@@ -1,34 +1,50 @@
 # Research of Data Quality tools. SODA
 
-In this project I wanted to explore features of SODA tool.
+This project delves into the features offered by the SODA data quality tool.
 
 ## Description
 
 This repository consists of:
 
-```
+```markdown
 - a database with:
     - a generic table;
-    - a table with SODA results;
+    - a table dedicated to SODA results;
 - a SODA setup;
-- an Airflow setup with a DAG for running SODA;
-- Docker files for wrapping this tool.
+- an Airflow setup:
+    - a DAG for creating a DB object;
+    - a DAG specifically for executing SODA;
+- necessary Docker files to containerize the tool.
 ```
 
 ## Airflow
-As the scheduler I choose Airflow v2. You can get local access there using http://localhost:8080/home/ (credentials you can find in `entrypoint.sh`).
+The chosen scheduler for this project is `Airflow v2`. For local access, navigate to [web page](http://localhost:8080/home/). Credentials are stored in the [entrypoint.sh](./project/entrypoint.sh) file.
 
-## Build
+## Build and Run
 
 When you need to start the app with all infrastructure, you have to make this steps:
-1. Change environment variables in [YML-file](./project/docker-compose.yml) and [entrypoint.sh](./project/entrypoint.sh) (now there are default values) 
-2. Execute the `docker-compose up -d --build` command - in this step the app will be built, tables will be created and Airflow app will be ready in some time.
+1. Modify the environment variables in [YML-file](./project/docker-compose.yml) and [entrypoint.sh](./project/entrypoint.sh) (now there are default values) 
+2. Run the following: docker-compose up -d --build command. Give it some time. Your app, tables, and Airflow will soon be ready.
 
 ### Note
 
-You should wait a couple of minutes for the database and Airflow webserer start. After that you may run the application and check logs as the next step.
+The database and Airflow webserver need a moment. Once up, proceed with the application.
+
+## List of tables
+
+```sql
+-- Automotive Data
+select * from automotive.cars;
+
+-- Data Quality Results
+select * from data_quality.soda_scan_summary;
+```
 
 ## Potential improvements
 
-- Create a mechanism which reads DB metadata and runs SODA through all tables.
-- Create a mechanism for data profiling or for creating generic checks like `not_null` or `numeric_values_only`.
+- Develop a mechanism to scan database metadata and execute SODA across all tables.
+- Develop a feature for data profiling or for generating standard checks such as `not_null` or `numeric_values_only`.
+
+## Documentation
+
+For a deeper understanding and detailed instructions on SODA, please refer to the official [SODA Documentation](https://docs.soda.io/soda-core/overview-main.html).

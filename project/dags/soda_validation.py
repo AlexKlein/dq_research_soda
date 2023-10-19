@@ -12,7 +12,7 @@ MODULE_PATH = '/opt/airflow/soda_checks/checks.py'
 MODULE_NAME = 'checks'
 
 DEFAULT_ARGS = {
-    'owner': 'Data-Governance',
+    'owner': 'aleksandr.klein',
     'depends_on_past': False,
     'email_on_failure': False,
     'email_on_retry': False

@@ -10,7 +10,7 @@ CONFIGURATION_YAML = "configuration.yml"
 TABLES_DIR = "/opt/airflow/soda_checks/tables"
 LOGS_VERBOSE = False
 INCLUDE_PASSED_CHECKS = True
-SCAN_SUMMARY_TABLE_NAME = "automotive.soda_scan_summary"
+SCAN_SUMMARY_TABLE_NAME = "data_quality.soda_scan_summary"
 
 
 def create_database_connection():
